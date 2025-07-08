@@ -1,5 +1,4 @@
-with open('root', 'r') as f:
-    idx = int(f.read().strip())
-
-module_name = f'module-{idx}.py'
-exec(open(module_name).read())
+with open("CR.txt", "r") as f:
+    for line in f:
+        指針 =line
+print(指針)
