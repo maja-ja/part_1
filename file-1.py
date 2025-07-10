@@ -1,21 +1,17 @@
-import keyboard
-import time
-import os
+ # Clear the file before writing
+import shared_state
+# 自動遞增
+def reCR():
+    with open("CR.txt", "r+") as f:
+        value = int(f.read().strip())
+        f.seek(0)
+        f.write(str(2))
+        f.truncate()
+print('hello world')
+# file-1.py
 
-def 按ESC兩下停止程式():
-    esc_count = 0
-    last_time = 0
-    while True:
-        if keyboard.is_pressed('esc'):
-            now = time.time()
-            if now - last_time < 0.5:
-                esc_count += 1
-            else:
-                esc_count = 1
-            last_time = now
-            if esc_count == 2:
-                print("偵測到兩次 ESC，程式結束。")
-                os._exit(0)
-            while keyboard.is_pressed('esc'):
-                time.sleep(0.05)  # 等待放開
-        time.sleep(0.05)
+print("我是 file-1")
+shared_state.shared_logic()
+print("共享變數內容：", shared_state.shared_variable)
+
+reCR()
