@@ -1,0 +1,11 @@
+v0.1
+新增 share_state.txt 作為共享變數資料來源。
+shared_state.py 改為自動從 share_state.txt 讀取 shared_variable。
+提供 update_shared_variable(new_value) 函式，支援寫回 share_state.txt。
+🤝 檔案整合
+file-1.py、file-2.py 現在皆引用 shared_state.py，統一使用共享邏輯與變數。
+CR.py 可根據 CR.txt 控制執行對象，並支援自動切換版本。
+🧪 測試情境
+成功切換 CR.txt 值後自動執行對應 .py 檔。
+更新 share_state.txt 後，file-1.py 與 file-2.py 執行皆能正確顯示內容。
+測試了 shared_state.update_shared_variable("新內容") 功能可正確覆寫文字。
